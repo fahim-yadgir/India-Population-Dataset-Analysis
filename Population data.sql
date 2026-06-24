@@ -32,3 +32,11 @@ rename column `Decadal_Growth_(%)` to `Decadal_Growth`;
 
 alter table population
 rename column `Gender Ratio` to `Gender_Ratio`;
+
+SET SQL_SAFE_UPDATES = 0;
+
+update population
+set Males = replace(Males,',','');
+
+alter table population
+modify Males bigint;
