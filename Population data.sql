@@ -40,3 +40,43 @@ set Males = replace(Males,',','');
 
 alter table population
 modify Males bigint;
+
+update population
+set females = replace(females,',','');
+
+alter table population
+modify column females bigint;
+
+update population
+set Population = replace(Population,',','');
+
+alter table population
+modify column Population bigint;
+
+update population
+set Rural_Population = replace(Rural_Population,',','');
+
+alter table population
+modify column Rural_Population bigint;
+
+update population
+set Urban_Population = replace(Urban_Population,',','');
+
+alter table population
+modify column Urban_Population bigint;
+
+update population
+set `Area_(km*km)` = replace(`Area_(km*km)`,',','');
+
+alter table population
+modify column `Area_(km*km)` bigint;
+
+update population
+set `Density_(1/km*km)` = replace(`Density_(1/km*km)`,',','');
+
+alter table population
+modify column `Density_(1/km*km)` bigint;
+
+update population
+set Decadal_Growth = replace(Decadal_Growth,'%','')
+
