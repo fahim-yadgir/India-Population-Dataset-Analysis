@@ -78,5 +78,10 @@ alter table population
 modify column `Density_(1/km*km)` bigint;
 
 update population
-set Decadal_Growth = replace(Decadal_Growth,'%','')
+set Decadal_Growth = replace(Decadal_Growth,'%','');
 
+alter table population
+modify column Decadal_Growth bigint;
+
+alter table population
+rename column Total_Population to Total_Population_cover;

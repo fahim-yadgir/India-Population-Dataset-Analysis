@@ -28,3 +28,10 @@ from population
 group by state
 order by top_5_densely desc
 limit 5;
+
+select * from population
+where State like 'O%';
+
+select State,Capital
+from population
+where Total_Population_cover > 6;
