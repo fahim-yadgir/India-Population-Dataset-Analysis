@@ -65,3 +65,48 @@ from population;
 select state , Population
 from population
 where population > (select avg(population) from population);
+
+select state , Literacy_Rate
+from population
+where Literacy_Rate < (select avg(Literacy_Rate) from population);
+
+select avg(Literacy_Rate)
+from population;
+
+select state,
+		capital,
+        population,
+        round((males * 100.0 / population),2)as male_percentage,
+        round((females * 100.0 / population),2)as female_percentege
+from population;
+
+select State 
+from population
+where Urban_Population > Rural_Population;
+
+select state,
+		capital,
+        population,
+        `Area_(km*km)`,
+        round(population / `Area_(km*km)`,2) as calculated_density
+from population;
+
+select state ,literacy_rate
+from population 
+where literacy_rate = (select max(Literacy_Rate)as highest_Literacy_Rate)
+order by literacy_rate desc
+limit 1;
+
+select state , literacy_rate
+from population
+where literacy_rate = (select min(Literacy_Rate)as minimum_Literacy_Rate)
+order by literacy_rate desc
+limit 1;
+
+select state , Decadal_Growth
+from population
+where Decadal_Growth > (select avg(Decadal_Growth)*0.2 from population);
+
+select state , Decadal_Growth
+from population
+where Decadal_Growth > 20;
