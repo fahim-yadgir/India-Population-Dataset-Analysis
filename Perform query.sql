@@ -35,3 +35,33 @@ where State like 'O%';
 select State,Capital
 from population
 where Total_Population_cover > 6;
+
+select State , avg(Literacy_Rate)as avg_Literacy_Rate
+from population
+group by State;
+
+select State,Urban_Population
+from population
+where Urban_Population > (select avg(Urban_Population)*0.5 from population);
+
+select count(*)as `Literacy_Rate_above_40%`
+from population
+where Literacy_Rate > (select avg(Literacy_Rate)*0.4 from population);
+
+select state,Urban_Population as top_5_Urban_Population
+from population
+order by top_5_Urban_Population desc
+limit 5;
+
+select state,Rural_Population as top_5_Rural_Population
+from population
+order by top_5_Rural_Population desc
+limit 5;
+
+select avg(population)
+from population;
+
+
+select state , Population
+from population
+where population > (select avg(population) from population);
