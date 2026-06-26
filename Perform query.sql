@@ -110,3 +110,11 @@ where Decadal_Growth > (select avg(Decadal_Growth)*0.2 from population);
 select state , Decadal_Growth
 from population
 where Decadal_Growth > 20;
+
+select state,
+case
+when Literacy_Rate > 90 then 'Excellent'
+when Literacy_Rate between 80 and 90 then 'Good'
+when Literacy_Rate < 80 then 'Needs Improvement'
+end as Categorize_Literacy_Rate
+from population;
