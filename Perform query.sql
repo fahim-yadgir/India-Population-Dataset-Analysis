@@ -140,16 +140,27 @@ select
 	round(sum(Rural_Population)*100.0/sum(population),2)as total_percentage_of_urban
 from population;
 
-
-
-
-
-
-
-
 select 
 		round(sum(Rural_Population)*100.0/sum(population),2)as total_percentage_Rural_population,
 		round(sum(Urban_Population)*100.0/sum(population),2)as total_percentage_Urban_population,
-        
+        round(sum(population)*100.0/sum(population),2)as total_population_percentage        
 from population;
 
+select round(avg(Decadal_Growth),2)as avg_Decadal_Growth
+from population;
+
+select count(state)as `Literacy_Rate_above_90%`
+from population
+where Literacy_Rate > 90;
+
+select sum(males)as sum_male_population,sum(females)as sum_female_population
+from population;
+
+select state ,capital,population,
+case
+when sum(population)>50000000 then 'high'
+when sum(population) between 20000000 and 50000000 then 'mudium'
+when sum(population)< 20000000 then 'Low'
+end as population_states
+from population
+group by state,capital,population;
