@@ -172,3 +172,16 @@ where population > (select avg(population)from population);
 select state , Literacy_Rate
 from population
 where Literacy_Rate > (select avg(Literacy_Rate)from population);
+
+select state , Population,Urban_Population
+from population
+where Urban_Population = (select max(Urban_Population)from population);
+
+select state , population,Rural_Population
+from population
+where Rural_Population = (select max(Rural_Population)from population);
+
+select state , population
+from population
+where population = (select max(Population)from population);
+
