@@ -135,3 +135,21 @@ from population;
 select
 	round(sum(Urban_Population)*100.0/sum(population),2)as total_percentage_of_urban
 from population;
+
+select 
+	round(sum(Rural_Population)*100.0/sum(population),2)as total_percentage_of_urban
+from population;
+
+
+
+
+
+
+
+
+select 
+		round(sum(Rural_Population)*100.0/sum(population),2)as total_percentage_Rural_population,
+		round(sum(Urban_Population)*100.0/sum(population),2)as total_percentage_Urban_population,
+        
+from population;
+
