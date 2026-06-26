@@ -164,3 +164,11 @@ when sum(population)< 20000000 then 'Low'
 end as population_states
 from population
 group by state,capital,population;
+
+select state , population
+from population
+where population > (select avg(population)from population);
+
+select state , Literacy_Rate
+from population
+where Literacy_Rate > (select avg(Literacy_Rate)from population);
