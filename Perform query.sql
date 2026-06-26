@@ -118,3 +118,16 @@ when Literacy_Rate between 80 and 90 then 'Good'
 when Literacy_Rate < 80 then 'Needs Improvement'
 end as Categorize_Literacy_Rate
 from population;
+
+select state , avg(population)
+from population
+group by state;
+
+select max(`Density_(1/km*km)`)as `max_Density_(1/km*km)`,min(`Density_(1/km*km)`)as `min_Density_(1/km*km)`
+from population;
+
+select sum(Urban_Population)as total_Urban_Population_population
+from population;
+
+select sum(Rural_Population)as total_Urban_Population_population
+from population;
