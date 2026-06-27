@@ -189,4 +189,29 @@ select state , population as second_highest
 from population
 where population = (select max(population)from population
 					where population < (select max(population)from population));
-                    
+
+select state , `Density_(1/km*km)`
+from population
+where `Density_(1/km*km)` > (select avg(`Density_(1/km*km)`)from population);
+
+select *,
+	rank() over(order by population desc)as rank_population
+from population;
+
+select *,
+		rank() over(order by Literacy_Rate desc)as rank_Literacy_Rate
+from population;
+
+select * ,
+		rank() over(order by population desc)as top_3
+from population
+limit 3;
+
+select *,
+		rank() over(order by Literacy_Rate desc)as top_3
+from population
+limit 3;
+
+select *,
+		sum(population) over(order by `Rank`)as cumulative_rank
+from population;
