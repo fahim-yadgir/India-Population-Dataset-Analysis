@@ -185,3 +185,8 @@ select state , population
 from population
 where population = (select max(Population)from population);
 
+select state , population as second_highest
+from population
+where population = (select max(population)from population
+					where population < (select max(population)from population));
+                    
