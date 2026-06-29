@@ -215,3 +215,11 @@ limit 3;
 select *,
 		sum(population) over(order by `Rank`)as cumulative_rank
 from population;
+
+select *,
+		rank() over(order by Rural_Population)as rank_Rural_Population
+from population;
+
+select *,
+		rank() over(order by Urban_Population)as rank_Urban_Population
+from population;
