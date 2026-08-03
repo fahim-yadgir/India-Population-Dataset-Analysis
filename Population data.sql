@@ -85,3 +85,11 @@ modify column Decadal_Growth bigint;
 
 alter table population
 rename column Total_Population to Total_Population_cover;
+
+create view Literacy_Rate_above_80 as
+(
+select * from population
+where Literacy_Rate > 80
+);
+
+select * from Literacy_Rate_above_80;
