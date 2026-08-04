@@ -93,3 +93,27 @@ where Literacy_Rate > 80
 );
 
 select * from Literacy_Rate_above_80;
+
+delimiter $$
+create procedure add_males_females
+(
+in s varchar(100),
+in m bigint,
+in f bigint
+)
+begin
+update population
+set     
+		Males = Males + m,
+        females = females + f
+where State = s;
+select * from population;
+end $$
+
+drop procedure add_males_females;
+
+call add_males_females('Uttar Pradesh',10,9);
+
+update population 
+set Males = 104480510
+where state = 'Uttar Pradesh';
