@@ -223,3 +223,24 @@ from population;
 select *,
 		rank() over(order by Urban_Population)as rank_Urban_Population
 from population;
+
+select * from population;
+
+select state , population
+from population
+where population = (select max(population)from population 
+					where population < (select max(population)from population));
+                    
+delimiter $$
+create procedure Add_uprban_population
+(
+in state text,
+in R_popultion bigint
+)
+begin
+update population
+set Rural_Population = R_popultion
+where State = state;
+select * from populatoin;
+end $$
+delimiter ;
