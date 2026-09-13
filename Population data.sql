@@ -117,3 +117,6 @@ call add_males_females('Uttar Pradesh',10,9);
 update population 
 set Males = 104480510
 where state = 'Uttar Pradesh';
+
+select State , Capital , Population , round(sum(Total_Population_cover) over(order by`Rank`),2)as Total_Population_cover
+from population;
