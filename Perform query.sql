@@ -231,6 +231,9 @@ from population
 where population = (select max(population)from population 
 					where population < (select max(population)from population));
                     
+
+drop procedure Add_uprban_population;
+
 delimiter $$
 create procedure Add_uprban_population
 (
@@ -239,8 +242,12 @@ in R_popultion bigint
 )
 begin
 update population
-set Rural_Population = R_popultion
+set Rural_Population = Rural_Population + R_popultion
 where State = state;
-select * from populatoin;
+select * from population;
 end $$
 delimiter ;
+
+start transaction;
+call Add_uprban_population("Maharashtra",2);
+commit;
