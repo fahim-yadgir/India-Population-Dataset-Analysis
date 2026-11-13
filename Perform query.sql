@@ -251,3 +251,6 @@ delimiter ;
 start transaction;
 call Add_uprban_population("Maharashtra",2);
 commit;
+
+select State , Capital , Population , rank() over(order by Population desc)as population_rank
+from population;
